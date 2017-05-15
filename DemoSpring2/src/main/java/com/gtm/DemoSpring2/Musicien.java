@@ -4,11 +4,13 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component("monMusicien")
 public class Musicien implements Performeur {
 
 		private String morceau;
-		
+		@Autowired
 		private Instrument instrument ; 
 	
 	
