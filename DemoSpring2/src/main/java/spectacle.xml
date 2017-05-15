@@ -8,7 +8,7 @@
 <bean id="saxophone" class="com.gtm.DemoSpring2.Saxophone" scope="prototype">
 </bean>
 <!-- déclaration du bean violon -->
-<bean id="violon" class="com.gtm.DemoSpring2.Violon">
+<bean id="violon" class="com.gtm.DemoSpring2.Violon" primary="true">
 </bean>
 <!-- déclaration du bean guitare -->
 <bean id="guitare" class="com.gtm.DemoSpring2.Guitare">
@@ -57,10 +57,14 @@
 <property name="morceau" value="#{olivier.morceau}"/>
 <property name="instrument" ref="violon"/>
 </bean>
-<!-- autowiring by name -->
+<!-- autowire by name -->
 <bean id="instrument" class="com.gtm.DemoSpring2.Saxophone">
 </bean>
 <bean name="michel" class="com.gtm.DemoSpring2.Musicien" autowire="byName">
+<property name="morceau" value="petit ours brun..."/>
+</bean>
+<!-- autowire by type -->
+<bean name="maurice" class="com.gtm.DemoSpring2.Musicien" autowire="byType">
 <property name="morceau" value="petit ours brun..."/>
 </bean>
 </beans>
