@@ -52,4 +52,9 @@
 </set>
 </property>
 </bean>
+<!-- déclaration du bean louis -->
+<bean name="louis" class="com.gtm.DemoSpring2.Musicien">
+<property name="morceau" value="#{olivier.morceau}"/>
+<property name="instrument" ref="violon"/>
+</bean>
 </beans>
