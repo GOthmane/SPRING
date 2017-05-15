@@ -67,4 +67,12 @@
 <bean name="maurice" class="com.gtm.DemoSpring2.Musicien" autowire="byType">
 <property name="morceau" value="petit ours brun..."/>
 </bean>
+<!-- bean parent -->
+<bean name="parent" class="com.gtm.DemoSpring2.Musicien" abstract="true">
+<property name="morceau" value="la marseillaise"/>
+<property name="instrument" ref="violon"/>
+</bean>
+<bean name="martin" parent="parent">
+<property name="instrument" ref="saxophone"/>
+</bean>
 </beans>
