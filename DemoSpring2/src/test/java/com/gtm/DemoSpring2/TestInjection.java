@@ -19,6 +19,7 @@ public class TestInjection {
 		Performeur maurice = (Performeur) appContext.getBean("maurice");
 		Performeur martin = (Performeur) appContext.getBean("martin");
 		Performeur monMusicien = (Performeur) appContext.getBean("monMusicien");
+		Instrument maGuitare = (Instrument) appContext.getBean("maGuitare");
 		//3- Traitement
 		System.out.println("----------------OLIVIER----------------");
 		olivier.performe();
@@ -40,6 +41,8 @@ public class TestInjection {
 		martin.performe();
 		System.out.println("----------------MON MUSICIEN----------------");
 		monMusicien.performe();
+		System.out.println("----------------MA GUITARE----------------");
+		maGuitare.jouer();
 		//4- Destruction du container
 		appContext.close();
 	}

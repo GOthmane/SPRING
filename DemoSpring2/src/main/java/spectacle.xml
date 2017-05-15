@@ -79,4 +79,6 @@
 <bean name="martin" parent="parent">
 <property name="instrument" ref="saxophone"/>
 </bean>
+<bean name="maGuitare" class="com.gtm.DemoSpring2.Piano">
+</bean>
 </beans>
