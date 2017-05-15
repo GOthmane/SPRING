@@ -3,7 +3,9 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 <!-- déclaration du bean saxophone -->
-<bean id="saxophone" class="com.gtm.DemoSpring2.Saxophone">
+<!-- scope : par défaut singleton (un seul bean partagé) 
+			 protoype (nouveau bean à chaque injection)-->
+<bean id="saxophone" class="com.gtm.DemoSpring2.Saxophone" scope="prototype">
 </bean>
 <!-- déclaration du bean violon -->
 <bean id="violon" class="com.gtm.DemoSpring2.Violon">
@@ -14,6 +16,10 @@
 <!-- déclaration du bean olivier -->
 <bean name="olivier" class="com.gtm.DemoSpring2.Musicien">
 <property name="morceau" value="Vive le vent..."/>
+<property name="instrument" ref="saxophone"/>
+</bean>
+<!-- déclaration du bean jeanMarc -->
+<bean name="jeanMarc" class="com.gtm.DemoSpring2.Musicien">
 <property name="instrument" ref="saxophone"/>
 </bean>
 <!-- déclaration du bean Caroline -->
