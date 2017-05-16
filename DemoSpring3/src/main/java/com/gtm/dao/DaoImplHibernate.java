@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -28,8 +29,9 @@ public class DaoImplHibernate implements IDao {
 
 	@Override
 	public List<User> listerUsers() {
-		// TODO Auto-generated method stub
-		return null;
+		String req = "from User";
+		Query query = getSession().createQuery(req);
+		return query.list();
 	}
 
 	@Override
