@@ -19,12 +19,12 @@ public class Lanceur {
 		user.setPrenom("testJPA");
 //		user2.setNom("nom2");
 //		user2.setPrenom("prenom2");
-		service.ajouterUser(user);
+//		service.ajouterUser(user);
 //		service.ajouterUser(user2);
 		System.out.println(service.listerUsers());
 //		service.supprimerUser(7);
 		System.out.println(service.listerParMC("om"));
-		System.out.println(service.listerParNom("nom"));
+		System.out.println(service.listerParNom("nom2"));
 		//4- Destruction du container
 		appContext.close();
 	}
