@@ -11,8 +11,7 @@ public class DaoImplHibernate implements IDao {
 
 	@Override
 	public void ajouterUser(User u) {
-		// TODO Auto-generated method stub
-
+		System.out.println("AJOUTER A PARTIR D'HIBERNATE");
 	}
 
 	@Override
