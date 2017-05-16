@@ -10,11 +10,15 @@ public class Lanceur {
 	public static void main(String[] args) {
 		//1- Chargement du container et création des beans
 		ClassPathXmlApplicationContext appContext = new ClassPathXmlApplicationContext("applicationContext.xml");
-		//2- Récupération d'un bean
+		//2- Récupération des beans
 		User user = (User) appContext.getBean("user");
+		User user2 = (User) appContext.getBean("user");
 		IService service = (IService) appContext.getBean("serviceImpl");
 		//3- Traitement
 		service.ajouterUser(user);
+		user.setNom("toto");
+		System.out.println("nom user = "+user.getNom());
+		System.out.println("nom user2 = "+user2.getNom());
 		//4- Destruction du container
 		appContext.close();
 	}
