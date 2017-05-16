@@ -15,11 +15,11 @@ public class Lanceur {
 		User user2 = (User) appContext.getBean("user");
 		IService service = (IService) appContext.getBean("serviceImpl");
 		//3- Traitement
-//		user.setNom("nom1");
-//		user.setPrenom("prenom1");
+		user.setNom("testJPA");
+		user.setPrenom("testJPA");
 //		user2.setNom("nom2");
 //		user2.setPrenom("prenom2");
-//		service.ajouterUser(user);
+		service.ajouterUser(user);
 //		service.ajouterUser(user2);
 		System.out.println(service.listerUsers());
 //		service.supprimerUser(7);

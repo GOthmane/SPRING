@@ -60,11 +60,13 @@
     <!-- package contenant les classes annotées spring -->
     <context:component-scan base-package="com.gtm" />
     <!-- prise en compte du gestionnaire de transaction pour @Transactional-->
-    <tx:annotation-driven transaction-manager="transactionManager" />
+    <!-- commenter la transaction on utilisée -->
+<!--     <tx:annotation-driven transaction-manager="transactionManager" /> -->
+    <tx:annotation-driven transaction-manager="transactionManagerJPA" />
     
 <!--Config JPA -->
     <bean id="entityManagerFactory"
-        class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean" primary="true">
         <property name="persistenceUnitName" value="testPU" />
         <property name="dataSource" ref="dataSource" />
     </bean>
