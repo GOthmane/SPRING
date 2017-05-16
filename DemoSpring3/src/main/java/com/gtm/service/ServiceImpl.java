@@ -2,8 +2,11 @@ package com.gtm.service;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.gtm.metier.User;
 
+@Service
 public class ServiceImpl implements IService {
 
 	@Override

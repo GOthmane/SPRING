@@ -2,8 +2,11 @@ package com.gtm.dao;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.gtm.metier.User;
 
+@Repository
 public class DaoImplJPA implements IDao {
 
 	@Override

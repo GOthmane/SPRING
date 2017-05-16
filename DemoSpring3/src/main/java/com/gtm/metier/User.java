@@ -1,5 +1,8 @@
 package com.gtm.metier;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class User {
 
 	private String nom;
