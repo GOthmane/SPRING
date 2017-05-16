@@ -34,8 +34,6 @@ public class DaoImplHibernate implements IDao {
 
 	@Override
 	public void supprimerUser(long id) {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
