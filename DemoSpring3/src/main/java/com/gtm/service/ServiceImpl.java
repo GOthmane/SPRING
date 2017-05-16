@@ -13,8 +13,8 @@ import com.gtm.metier.User;
 public class ServiceImpl implements IService {
 	
 	@Autowired
-	//@Qualifier("daoImplHibernate")
-	@Qualifier("daoImplJPA")
+	@Qualifier("daoImplHibernate")
+	//@Qualifier("daoImplJPA")
 	private IDao dao;
 
 	@Override
