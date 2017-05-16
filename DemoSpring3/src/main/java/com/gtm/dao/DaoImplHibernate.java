@@ -29,7 +29,7 @@ public class DaoImplHibernate implements IDao {
 
 	@Override
 	public List<User> listerUsers() {
-		String req = "from User";
+		String req = "FROM User";
 		Query query = getSession().createQuery(req);
 		return query.list();
 	}
@@ -46,14 +46,18 @@ public class DaoImplHibernate implements IDao {
 
 	@Override
 	public List<User> listerParMC(String nom) {
-		// TODO Auto-generated method stub
-		return null;
+		String req = "FROM User as u WHERE u.nom LIKE :leNom";
+		Query query = getSession().createQuery(req);
+		query.setParameter("leNom", "%nom%");
+		return query.list();
 	}
 
 	@Override
-	public List<User> listerParNom(String nom) {
-		// TODO Auto-generated method stub
-		return null;
+	public User listerParNom(String nom) {
+		String req = "FROM User as u WHERE u.nom LIKE :leNom";
+		Query query = getSession().createQuery(req);
+		query.setParameter("leNom", nom);
+		return (User) query.uniqueResult();
 	}
 
 }

@@ -15,14 +15,16 @@ public class Lanceur {
 		User user2 = (User) appContext.getBean("user");
 		IService service = (IService) appContext.getBean("serviceImpl");
 		//3- Traitement
-		user.setNom("nom1");
-		user.setPrenom("prenom1");
-		user2.setNom("nom2");
-		user2.setPrenom("prenom2");
-		service.ajouterUser(user);
-		service.ajouterUser(user2);
+//		user.setNom("nom1");
+//		user.setPrenom("prenom1");
+//		user2.setNom("nom2");
+//		user2.setPrenom("prenom2");
+//		service.ajouterUser(user);
+//		service.ajouterUser(user2);
 		System.out.println(service.listerUsers());
-		service.supprimerUser(7);
+//		service.supprimerUser(7);
+		System.out.println(service.listerParMC("om"));
+		System.out.println(service.listerParNom("nom1"));
 		//4- Destruction du container
 		appContext.close();
 	}

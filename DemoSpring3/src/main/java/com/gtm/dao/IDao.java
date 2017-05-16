@@ -11,6 +11,6 @@ public interface IDao {
 	public void supprimerUser(long id);
 	public User trouverUser(long id);
 	public List<User> listerParMC(String nom);
-	public List<User> listerParNom(String nom);
+	public User listerParNom(String nom);
 
 }
