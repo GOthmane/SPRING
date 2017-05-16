@@ -22,6 +22,7 @@ public class Lanceur {
 		service.ajouterUser(user);
 		service.ajouterUser(user2);
 		System.out.println(service.listerUsers());
+		service.supprimerUser(7);
 		//4- Destruction du container
 		appContext.close();
 	}

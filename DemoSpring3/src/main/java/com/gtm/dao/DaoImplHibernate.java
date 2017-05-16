@@ -36,12 +36,12 @@ public class DaoImplHibernate implements IDao {
 
 	@Override
 	public void supprimerUser(long id) {
+		getSession().delete(trouverUser(id));
 	}
 
 	@Override
 	public User trouverUser(long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return getSession().get(User.class,id);
 	}
 
 	@Override

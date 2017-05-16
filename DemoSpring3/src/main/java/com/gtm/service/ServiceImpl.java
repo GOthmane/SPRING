@@ -29,8 +29,7 @@ public class ServiceImpl implements IService {
 
 	@Override
 	public void supprimerUser(long id) {
-		// TODO Auto-generated method stub
-
+		dao.supprimerUser(id);
 	}
 
 	@Override
