@@ -2,16 +2,28 @@ package com.gtm.dao;
 
 import java.util.List;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.gtm.metier.User;
 
+@Transactional
 @Repository
 public class DaoImplHibernate implements IDao {
 
+	@Autowired
+	private SessionFactory sessionFactory;
+	
+	private Session getSession(){
+		return sessionFactory.getCurrentSession();
+	}
+	
 	@Override
 	public void ajouterUser(User u) {
-		System.out.println("AJOUTER A PARTIR D'HIBERNATE");
+		getSession().save(u);
 	}
 
 	@Override
