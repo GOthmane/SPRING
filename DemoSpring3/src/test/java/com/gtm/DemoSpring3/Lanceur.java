@@ -24,7 +24,7 @@ public class Lanceur {
 		System.out.println(service.listerUsers());
 //		service.supprimerUser(7);
 		System.out.println(service.listerParMC("om"));
-		System.out.println(service.listerParNom("nom1"));
+		System.out.println(service.listerParNom("nom"));
 		//4- Destruction du container
 		appContext.close();
 	}

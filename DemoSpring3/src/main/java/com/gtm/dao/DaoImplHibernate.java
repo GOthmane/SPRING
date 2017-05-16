@@ -57,6 +57,10 @@ public class DaoImplHibernate implements IDao {
 		String req = "FROM User as u WHERE u.nom LIKE :leNom";
 		Query query = getSession().createQuery(req);
 		query.setParameter("leNom", nom);
+		// un resultat au maximum pour la requete
+		// sinon erreur avec uniqueResult() lorsqu'il
+		// y a plusieurs resultats
+		query.setMaxResults(1);
 		return (User) query.uniqueResult();
 	}
 
