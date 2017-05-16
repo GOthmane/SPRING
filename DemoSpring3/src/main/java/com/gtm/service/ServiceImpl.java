@@ -24,8 +24,7 @@ public class ServiceImpl implements IService {
 
 	@Override
 	public List<User> listerUsers() {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.listerUsers();
 	}
 
 	@Override
