@@ -19,7 +19,7 @@ public class Lanceur {
 		user.setPrenom("testJPA");
 //		user2.setNom("nom2");
 //		user2.setPrenom("prenom2");
-//		service.ajouterUser(user);
+		service.ajouterUser(user);
 //		service.ajouterUser(user2);
 		System.out.println(service.listerUsers());
 //		service.supprimerUser(7);
