@@ -77,5 +77,5 @@
     </bean>
 <!--Fin config JPA -->
 <!-- Config Spring Data -->
-<jpa:repositories base-package="com.gtm.dao.springdata" entity-manager-factory-ref="entityManagerFactory" transaction-manager-ref="transactionManagerJPA"/>
+<jpa:repositories base-package="com.gtm.dao.springdata" transaction-manager-ref="transactionManagerJPA"/>
 </beans>
