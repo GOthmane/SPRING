@@ -48,9 +48,9 @@ public class ServiceImpl implements IService {
 	@Override
 	public List<User> listerParMC(String nom) {
 		//return dao.listerParMC(nom);
-		return userRepository.findByMC(nom);
+		//return userRepository.findByMC(nom);
 		// Autre méthode Spring Data
-		//return userRepository.findByNomContaining(nom);
+		return userRepository.findByNomContaining(nom);
 	}
 
 	@Override

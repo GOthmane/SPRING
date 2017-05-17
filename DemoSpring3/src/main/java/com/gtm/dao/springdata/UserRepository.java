@@ -11,9 +11,9 @@ public interface UserRepository extends JpaRepository<User, Long>{
 	
 	public User findFirstByNom(String nom);
 	
-	//public List<User> FindByNomContaining(String nom);
+	public List<User> findByNomContaining(String nom);
 	
-	@Query("SELECT u FROM User u WHERE u.nom LIKE %?1%")
-	public List<User> findByMC(String mc);
+	//@Query("SELECT u FROM User u WHERE u.nom LIKE %?1%")
+	//public List<User> findByMC(String mc);
 
 }
