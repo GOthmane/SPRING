@@ -12,7 +12,6 @@ import com.gtm.dao.springdata.UserRepository;
 import com.gtm.metier.User;
 
 @Service
-@Transactional
 public class ServiceImpl implements IService {
 	
 	@Autowired
@@ -48,9 +47,9 @@ public class ServiceImpl implements IService {
 	@Override
 	public List<User> listerParMC(String nom) {
 		//return dao.listerParMC(nom);
-		//return userRepository.findByMC(nom);
+		return userRepository.findByMC(nom);
 		// Autre méthode Spring Data
-		return userRepository.findByNomContaining(nom);
+		//return userRepository.findByNomContaining(nom);
 	}
 
 	@Override
