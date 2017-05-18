@@ -59,10 +59,10 @@
 </property>
 </bean>
 <!-- déclaration du bean louis -->
-<bean name="louis" class="com.gtm.DemoSpring2.Musicien">
-<property name="morceau" value="#{olivier.morceau}"/>
-<property name="instrument" ref="violon"/>
-</bean>
+<!-- <bean name="louis" class="com.gtm.DemoSpring2.Musicien"> -->
+<!-- <property name="morceau" value="#{olivier.morceau}"/> -->
+<!-- <property name="instrument" ref="violon"/> -->
+<!-- </bean> -->
 <!-- autowire by name -->
 <bean id="instrument" class="com.gtm.DemoSpring2.Saxophone">
 </bean>
@@ -97,6 +97,19 @@
 <aop:before method="prendPlace" pointcut-ref="servicePointcut"/>
 <!-- méthode appelée après succès -->
 <aop:after-returning method="applaudit" pointcut-ref="servicePointcut"/>
+</aop:aspect>
+</aop:config>
+<!-- MISE EN OEUVRE AOP -->
+<!-- déclaration du bean intercepteur -->
+<bean id="musiciens" class="com.gtm.DemoSpring2.intercepteurs.Musiciens"/>
+<!-- mise en oeuvre du tissage -->
+<aop:config>
+<!-- définition d'un lieu d'interception -->
+<aop:pointcut expression="execution(* * .performe(..))" id="servicePointcut2"/>
+<!-- mise en oeuvre de l'aspect -->
+<aop:aspect id="musiciensAspect" ref="musiciens">
+<!-- méthode appelée autour -->
+<aop:around method="jeJoue" pointcut-ref="servicePointcut2"/>
 </aop:aspect>
 </aop:config>
 </beans>

@@ -14,7 +14,7 @@ public class TestInjection {
 		Performeur jeanMarc = (Performeur) appContext.getBean("jeanMarc");
 		Performeur julien =  (Performeur) appContext.getBean("julien");
 		Performeur alain = (Performeur) appContext.getBean("alain");
-		Performeur louis = (Performeur) appContext.getBean("louis");
+		//Performeur louis = (Performeur) appContext.getBean("louis");
 		Performeur michel = (Performeur) appContext.getBean("michel");
 		Performeur maurice = (Performeur) appContext.getBean("maurice");
 		Performeur martin = (Performeur) appContext.getBean("martin");
@@ -32,7 +32,7 @@ public class TestInjection {
 		System.out.println("----------------ALAIN----------------");
 		alain.performe();
 		System.out.println("----------------LOUIS----------------");
-		louis.performe();
+		//louis.performe();
 		System.out.println("----------------MICHEL----------------");
 		michel.performe();
 		System.out.println("----------------MAURICE----------------");
