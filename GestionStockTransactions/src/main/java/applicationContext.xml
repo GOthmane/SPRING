@@ -53,8 +53,8 @@
 	<!-- MISE EN PLACE D'UN INTERCEPTEUR SPRING POUR LA GESTION DES TRANSACTIONS -->
 <!-- 	<tx:advice id="txAdvice" transaction-manager="transactionManagerJPA"> -->
 <!-- 		<tx:attributes> -->
-<!-- 			<tx:method name="sortArticleDuStock" /> -->
-<!-- 			<tx:method name="getQteEnStock" /> -->
+<!-- 			<tx:method name="sortArticleDuStock" rollback-for="NotEnoughArticlesException"/> -->
+<!-- 			<tx:method name="getQteEnStock" rollback-for="NotEnoughArticlesException"/> -->
 <!-- 		</tx:attributes> -->
 <!-- 	</tx:advice> -->
 

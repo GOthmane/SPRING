@@ -2,6 +2,7 @@ package com.gtm.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.gtm.dao.StockRepository;
@@ -33,9 +34,7 @@ public class ServiceImpl implements IService {
 		if (stockRepository.findOne(id).getQuantite() < qte) {
 			throw new NotEnoughArticlesException();
 		}
-		
 		stockRepository.sortArticleDuStock(id, qte);
-
 	}
 
 	@Override
