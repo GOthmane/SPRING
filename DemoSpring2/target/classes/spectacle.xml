@@ -2,8 +2,10 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
 <context:annotation-config/>
 <context:component-scan base-package="com.gtm.demoSpring2"></context:component-scan>
 <!-- déclaration du bean saxophone -->
@@ -81,4 +83,20 @@
 </bean>
 <bean name="maGuitare" class="com.gtm.DemoSpring2.Piano">
 </bean>
+
+<!-- MISE EN OEUVRE AOP -->
+<!-- déclaration du bean intercepteur -->
+<bean id="spectateurs" class="com.gtm.DemoSpring2.intercepteurs.Spectateurs"/>
+<!-- mise en oeuvre du tissage -->
+<aop:config>
+<!-- définition d'un lieu d'interception -->
+<aop:pointcut expression="execution(* * .jouer(..))" id="servicePointcut"/>
+<!-- mise en oeuvre de l'aspect -->
+<aop:aspect id="spectateursAspect" ref="spectateurs">
+<!-- méthode appelée avant -->
+<aop:before method="prendPlace" pointcut-ref="servicePointcut"/>
+<!-- méthode appelée après succès -->
+<aop:after-returning method="applaudit" pointcut-ref="servicePointcut"/>
+</aop:aspect>
+</aop:config>
 </beans>
