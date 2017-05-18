@@ -112,4 +112,6 @@
 <aop:around method="jeJoue" pointcut-ref="servicePointcut2"/>
 </aop:aspect>
 </aop:config>
+<!-- MISE EN OEUVRE AOP AVEC ANNOTATIONS @AspectJ-->
+<aop:aspectj-autoproxy/>
 </beans>
