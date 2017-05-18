@@ -2,7 +2,6 @@ package com.gtm.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.gtm.dao.StockRepository;
 import com.gtm.metier.Stock;
