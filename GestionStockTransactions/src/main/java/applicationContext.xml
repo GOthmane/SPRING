@@ -1,11 +1,11 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:tx="http://www.springframework.org/schema/tx"
-	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xmlns:aop="http://www.springframework.org/schema/aop"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
 		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-1.8.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 
 	<!-- recherche du fichier de properties -->
@@ -24,26 +24,43 @@
 		<property name="password" value="${db.password}" />
 	</bean>
 
-<!-- definition de l'entityManagerFactory pour JPA -->
-<bean id="entityManagerFactory"
-        class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"> 
-        <property name="persistenceUnitName" value="testPU" />
-        <property name="dataSource" ref="dataSource" />
-    </bean>
+	<!-- definition de l'entityManagerFactory pour JPA -->
+	<bean id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="persistenceUnitName" value="testPU" />
+		<property name="dataSource" ref="dataSource" />
+	</bean>
 
-	<!-- définition du gestionnaire de transactions faisant référence au bean entityManagerFactory de JPA -->
-    <bean id="transactionManagerJPA" class="org.springframework.orm.jpa.JpaTransactionManager"> 
-        <property name="entityManagerFactory" ref="entityManagerFactory" />
-    </bean>
-    
-    <!-- CONFIG SPRING DATA -->
-    <jpa:repositories base-package="com.gtm.dao" entity-manager-factory-ref="entityManagerFactory" transaction-manager-ref="transactionManagerJPA"/>
-    
+	<!-- définition du gestionnaire de transactions faisant référence au bean 
+		entityManagerFactory de JPA -->
+	<bean id="transactionManagerJPA" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+
+	<!-- CONFIG SPRING DATA -->
+	<jpa:repositories base-package="com.gtm.dao"
+		entity-manager-factory-ref="entityManagerFactory"
+		transaction-manager-ref="transactionManagerJPA" />
+
 	<!-- pour utiliser les annotations spring -->
 	<context:annotation-config />
 	<!-- package contenant les classes annotées spring -->
 	<context:component-scan base-package="com.gtm" />
 
-		<!-- prise en compte du gestionnaire de transaction pour @Transactional -->
-	<tx:annotation-driven transaction-manager="transactionManagerJPA"/>
+	<!-- prise en compte du gestionnaire de transaction pour @Transactional -->
+	<tx:annotation-driven transaction-manager="transactionManagerJPA" />
+
+	<!-- MISE EN PLACE D'UN INTERCEPTEUR SPRING POUR LA GESTION DES TRANSACTIONS -->
+	<tx:advice id="txAdvice" transaction-manager="transactionManagerJPA">
+		<tx:attributes>
+			<tx:method name="sortArticleDuStock" />
+			<tx:method name="getQteEnStock" />
+		</tx:attributes>
+	</tx:advice>
+
+	<aop:config>
+		<aop:pointcut expression="execution(* com.gtm.service.ServiceImpl.*(..))"
+			id="stockServiceOperation" />
+		<aop:advisor advice-ref="txAdvise" pointcut-ref="stockServiceOperation" />
+	</aop:config>
 </beans>
