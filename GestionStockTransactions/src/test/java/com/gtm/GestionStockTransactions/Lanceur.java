@@ -20,7 +20,7 @@ public class Lanceur {
 		s.setQuantite(10);
 		//service.ajouter(s);
 		try {
-			service.sortArticleDuStock(1, 5);
+			service.sortArticleDuStock(1, 30);
 		} catch (ArticleNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

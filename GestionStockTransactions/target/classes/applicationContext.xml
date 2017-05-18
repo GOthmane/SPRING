@@ -51,16 +51,16 @@
 	<tx:annotation-driven transaction-manager="transactionManagerJPA" />
 
 	<!-- MISE EN PLACE D'UN INTERCEPTEUR SPRING POUR LA GESTION DES TRANSACTIONS -->
-	<tx:advice id="txAdvice" transaction-manager="transactionManagerJPA">
-		<tx:attributes>
-			<tx:method name="sortArticleDuStock" />
-			<tx:method name="getQteEnStock" />
-		</tx:attributes>
-	</tx:advice>
+<!-- 	<tx:advice id="txAdvice" transaction-manager="transactionManagerJPA"> -->
+<!-- 		<tx:attributes> -->
+<!-- 			<tx:method name="sortArticleDuStock" /> -->
+<!-- 			<tx:method name="getQteEnStock" /> -->
+<!-- 		</tx:attributes> -->
+<!-- 	</tx:advice> -->
 
-	<aop:config>
-		<aop:pointcut expression="execution(* com.gtm.service.ServiceImpl.*(..))"
-			id="stockServiceOperation" />
-		<aop:advisor advice-ref="txAdvise" pointcut-ref="stockServiceOperation" />
-	</aop:config>
+<!-- 	<aop:config> -->
+<!-- 		<aop:pointcut expression="execution(* com.gtm.service.ServiceImpl.*(..))" -->
+<!-- 			id="stockServiceOperation" /> -->
+<!-- 		<aop:advisor advice-ref="txAdvice" pointcut-ref="stockServiceOperation" /> -->
+<!-- 	</aop:config> -->
 </beans>
